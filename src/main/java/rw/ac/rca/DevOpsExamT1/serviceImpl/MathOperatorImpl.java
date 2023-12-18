@@ -8,7 +8,7 @@ import rw.ac.rca.DevOpsExamT1.util.InvalidOperationException;
 public class MathOperatorImpl extends MathOperator {
     @Override
     public double doMath(double operand1, double operand2, String operation) throws InvalidOperationException {
-        if ("/".equals(operation) && operand2 == (double) 0) {
+        if ("/".equals(operation) && (operand2 == 0 || operand2 == (double) 0)) {
             throw new InvalidOperationException("Cannot divide by 0");
         }
 

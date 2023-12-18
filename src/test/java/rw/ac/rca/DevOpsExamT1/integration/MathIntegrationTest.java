@@ -44,12 +44,15 @@ public class MathIntegrationTest {
 
     @Test
     public void testDivision_operand2_IsZero_fail() throws Exception {
-        DoMathRequest mathRequest = new DoMathRequest(12, 4, "/");
+        DoMathRequest mathRequest = new DoMathRequest(12, 0, "/");
 
         mockMvc.perform(MockMvcRequestBuilders.post("/api/math")
                         .contentType("application/json")
                         .content(toJSON(mathRequest)))
-                .andExpect(status().is5xxServerError());
+                .andExpect(status().is5xxServerError())
+                .andExpect(jsonPath("$.status").value(500))
+                .andExpect(jsonPath("$.error").value("Internal Server Error"))
+                .andExpect(jsonPath("$.message").value("Cannot divide by 0"));
     }
 
     @Test
