@@ -1,4 +1,4 @@
-package rw.ac.rca.DevOpsExamT1.integration;
+package rw.ac.rca.DevOpsExamT1.e2e;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class MathIntegrationTest {
+public class MathOperationE2ETest {
     @Autowired
     private TestRestTemplate restTemplate;
 
